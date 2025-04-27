@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太阳系冒险游戏</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+        }
+
+        #solar-system-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-image: url('picture/OIP-C.jpg');
+            background-size: cover;
+            display: block;
+        }
+
+        .planet {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-size: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .planet:hover {
+            transform: scale(1.1);
+        }
+
+        #game-container {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: 2px solid black;
+            background-size: cover;
+            display: none;
+        }
+
+        #player1,
+        #player2 {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            transition: all 0.1s;
+            background-size: cover;
+        }
+
+        .enemy {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            background-size: cover;
+        }
+
+        .attack-line {
+            position: absolute;
+            display: none;
+            background: linear-gradient(to right, rgba(255, 255, 0, 0.2), rgba(255, 255, 0, 1), rgba(255, 255, 0, 0.2));
+            animation: attackFlash 0.3s ease-in-out;
+        }
+
+        @keyframes attackFlash {
+            0% {
+                opacity: 0.2;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.2;
+                transform: scale(0.8);
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div id="solar-system-container">
+    <!-- 水星 -->
+    <div class="planet" id="mercury" style="left: 390px; top: 360px; background-image: url('picture/星球.png');"></div>
+    <!-- 金星 -->
+    <div class="planet" id="venus" style="left: 370px; top: 410px; background-image: url('picture/星球.png');"></div>
+    <!-- 地球 -->
+    <div class="planet" id="earth" style="left: 330px; top: 440px; background-image: url('picture/星球.png');"></div>
+    <!-- 火星 -->
+    <div class="planet" id="mars" style="left: 280px; top: 450px; background-image: url('picture/星球.png');"></div>
+    <!-- 木星 -->
+    <div class="planet" id="jupiter" style="left: 220px; top: 430px; background-image: url('picture/星球.png');"></div>
+    <!-- 土星 -->
+    <div class="planet" id="saturn" style="left: 150px; top: 400px; background-image: url('picture/星球.png');"></div>
+    <!-- 天王星 -->
+    <div class="planet" id="uranus" style="left: 90px; top: 360px; background-image: url('picture/星球.png');"></div>
+    <!-- 海王星 -->
+    <div class="planet" id="neptune" style="left: 40px; top: 320px; background-image: url('picture/星球.png');"></div>
+</div>
+<div id="game-container"></div>
+<script src="script.js"></script>
+</body>
+
+</html>
+    
